@@ -17,8 +17,14 @@ title.style.textTransform='uppercase';
 // third.style.color='#0000ff'
 // third.style.fontSize='25px'
 
-var items=document.getElementsByClassName('list-group-item');
-items[2].style.backgroundColor="#00ff00"
-items.style.fontWeight="bold";
-items.style.fontSize="25px"
+// var items=document.getElementsByClassName('list-group-item');
+// items[2].style.backgroundColor="#00ff00"
+// items.style.fontWeight="bold";
+// items.style.fontSize="25px"
+
+const li=document.getElementsByTagName('li');
+li[2].style.backgroundColor="#00ff00"
+li[1].style.fontWeight="bold";
+li.style.fontSize="25px"
+
 
