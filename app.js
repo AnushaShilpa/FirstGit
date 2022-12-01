@@ -28,20 +28,65 @@ title.style.textTransform='uppercase';
 // li.style.fontSize="25px"
 
 // const item =document.querySelector('.list-group-item');
-// item.nextElementSibling.style.backgroundColor="#00ff00";
+// item.nextElementSibling.style.backgroundColor="green";
 
 
 // const thirditem =document.querySelector('.list-group-item:nth-child(3)');
 // thirditem.style.display ="None";
 
 
-const items =document.querySelectorAll('.list-group-item');
-items[1].style.backgroundColor="#00ff00";
+// const items =document.querySelectorAll('.list-group-item');
+// items[1].style.backgroundColor="green";
 
-const items=document.querySelectorAll('li:nth-child(odd)');
+// const items=document.querySelectorAll('li:nth-child(odd)');
 
 
-for(var i=0;i<items.length;i++)
-{
-  items[i].style.backgroundColor="#00ff55";
-}
+// for(var i=0;i<items.length;i++)
+// {
+//   items[i].style.backgroundColor="green";
+// }
+
+
+const itemlist= document.querySelector('#items');
+console.log(itemlist.parentElement);
+console.log(itemlist.lastElementChild);
+console.log(itemlist.lastChild);
+console.log(itemlist.firstElementChild);
+console.log(itemlist.firstChild);
+console.log(itemlist.nextSibling);
+console.log(itemlist.nextElementSibling);
+console.log(itemlist.previousSibling);
+console.log(itemlist.previousElementSibling);
+console.log(itemlist.childNodes);
+
+
+const newDiv = document.createElement("div");
+newDiv.className="hello";
+newDiv.id="heelo";
+newDiv.setAttribute('title','hello div');
+const newdivtext= document.createTextNode('hello world');
+newDiv.appendChild(newdivtext);
+ const header=document.querySelector('header .container');
+ const h1=document.querySelector('header h1');
+ header.insertBefore(newDiv, h1);
+
+ const li=document.createElement('li');
+ 
+
+ li.className="hello";
+ const content=document.createTextNode('Hello world');
+ li.appendChild(content);
+
+  const header=document.querySelector('#items');
+  // const ul=document.querySelector('li .list-group-item');
+  header.insertAdjacentElement("afterbegin",li);
+
+
+
+  
+
+
+
+
+
+//  console.log(li);
