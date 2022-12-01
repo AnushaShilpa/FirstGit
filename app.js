@@ -60,26 +60,45 @@ console.log(itemlist.previousElementSibling);
 console.log(itemlist.childNodes);
 
 
-const newDiv = document.createElement("div");
-newDiv.className="hello";
-newDiv.id="heelo";
-newDiv.setAttribute('title','hello div');
-const newdivtext= document.createTextNode('hello world');
-newDiv.appendChild(newdivtext);
- const header=document.querySelector('header .container');
- const h1=document.querySelector('header h1');
- header.insertBefore(newDiv, h1);
+// const newDiv = document.createElement("div");
+// newDiv.className="hello";
+// newDiv.id="heelo";
+// newDiv.setAttribute('title','hello div');
+// const newdivtext= document.createTextNode('hello world');
+// newDiv.appendChild(newdivtext);
+//  const header=document.querySelector('header .container');
+//  const h1=document.querySelector('header h1');
+//  header.insertBefore(newDiv, h1);
 
- const li=document.createElement('li');
+
+Hello world
+
+//  const li=document.createElement('li');
  
 
- li.className="hello";
- const content=document.createTextNode('Hello world');
+//  li.className="hello";
+//  const content=document.createTextNode('Hello world');
+//  li.appendChild(content);
+
+//   const header=document.querySelector('#items');
+//   // const ul=document.querySelector('li .list-group-item');
+//   header.insertAdjacentElement("afterbegin",li);
+
+
+// create childNode
+========
+const li=document.createElement('li');
+ 
+
+ li.className="list-group-item";
+ const content=document.createTextNode('item 5');
  li.appendChild(content);
 
   const header=document.querySelector('#items');
   // const ul=document.querySelector('li .list-group-item');
-  header.insertAdjacentElement("afterbegin",li);
+  header.append(li);
+
+
 
 
 
