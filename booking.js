@@ -21,7 +21,11 @@ function addItem(e)
 
   }
 
-  const my_obj=JSON.stringify(details);
-  localStorage.setItem('details',my_obj)
+  
+  localStorage.setItem(details.Email,JSON.stringify(details))
+
+  const appointment=JSON.parse(localStorage.getItem(details.Email));
+  console.log(appointment);
+  
   
 }
