@@ -11,9 +11,7 @@ function addItem(e)
   // localStorage.setItem('fname',fname);
   // localStorage.setItem('Email',Email);
   // localStorage.setItem('PHNO',PHNO);
-
-
-  const details=
+  const details =
   {
     fname:fname,
     Email:Email,
@@ -21,18 +19,48 @@ function addItem(e)
 
   }
   localStorage.setItem(details.Email,JSON.stringify(details));
-  
-
   showuser(details);
 }
 
 function showuser(user)
 {
   const parentNode=document.getElementById('list');
-  const childHTML= `<li>${user.fname},${user.Email}</li>`;
   
-  parentNode.innerHTML=parentNode.innerHTML+childHTML;
  
+  const childHTML= `<li id= ${user.Email}>${user.fname},${user.Email}
+              <button onclick=editUser('${user.Email}','${user.fname}','${user.PHNO}') class="btn btn-dark text-white btn-sm float-right">Edit</button>
+              <button onclick=deleteUser('${user.Email}') class="btn btn-danger text-white btn-sm float-right"> delete</button>
+                                      </li>`;// we can call click like this also
+  parentNode.innerHTML=parentNode.innerHTML+childHTML;
+  
 }
+
+function deleteUser(Email)
+{
+  localStorage.removeItem(Email);
+  removeUSerFromScreen(Email);
+}
+
+function removeUSerFromScreen(Email)
+{
+
+  const parentNode=document.getElementById('list');
+  const child=document.getElementById(Email);
+  parentNode.removeChild(child);
+}
+
+function editUser(Email,fname,PHNO)
+{
+
+  document.getElementById('fname').value=fname;
+  document.getElementById('Email').value=Email;
+  document.getElementById('PHNO').value=PHNO;
+
+  deleteUser(Email);
+
+
+}
+
+
 
 
