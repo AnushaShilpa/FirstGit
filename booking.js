@@ -20,12 +20,19 @@ function addItem(e)
     PHNO:PHNO
 
   }
+  localStorage.setItem(details.Email,JSON.stringify(details));
+  
 
-  
-  localStorage.setItem(details.Email,JSON.stringify(details))
-
-  const appointment=JSON.parse(localStorage.getItem(details.Email));
-  console.log(appointment);
-  
-  
+  showuser(details);
 }
+
+function showuser(user)
+{
+  const parentNode=document.getElementById('list');
+  const childHTML= `<li>${user.fname},${user.Email}</li>`;
+  
+  parentNode.innerHTML=parentNode.innerHTML+childHTML;
+ 
+}
+
+
