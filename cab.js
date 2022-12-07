@@ -1,23 +1,50 @@
-var obj={num:3}
-// function addToThis(a,b,c)
+// var obj={num:3}
+// // function addToThis(a,b,c)
+// // {
+// //   return this.num+a+b+c;
+// // }
+
+
+// // var arr=[2,4,6]
+// // // console.log(addToThis.apply(obj,arr));
+// // // console.log(addToThis.call(obj,3));
+// // var bound=addToThis.bind(obj);
+// console.log(bound( 2,4,6));
+
+
+
+// var obj={age:20};
+// function age()
 // {
-//   return this.num+a+b+c;
+//   return this.age;
 // }
 
-
-// var arr=[2,4,6]
-// // console.log(addToThis.apply(obj,arr));
-// // console.log(addToThis.call(obj,3));
-// var bound=addToThis.bind(obj);
-console.log(bound( 2,4,6));
+// var bound=age.bind(obj);
+// console.log(bound());
 
 
+//=============bind===========
 
-var obj={age:20};
-function age()
+// let multiply=function(x,y)
+// {
+//     console.log(x*y);
+// }
+
+// let multiplyByTwo=multiply.bind(this,2);
+// multiplyByTwo(3);
+
+
+//===============closures=============
+
+let multiply=function(x,y)
 {
-  return this.age;
+  return function y()
+  {
+    return function z()
+    {
+      console.log(x*y);
+    }
+  }
 }
-
-var bound=age.bind(obj);
-console.log(bound());
+let multiplyByTwo=multiply(2);
+multiplyByTwo(3);
