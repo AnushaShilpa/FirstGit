@@ -36,15 +36,45 @@
 
 //===============closures=============
 
-let multiply=function(x,y)
+// let multiply=function(x,y)
+// {
+//   return function y()
+//   {
+//     return function z()
+//     {
+//       console.log(x*y);
+//     }
+//   }
+// }
+// let multiplyByTwo=multiply(2);
+// multiplyByTwo(3);
+
+  
+  
+  
+  
+  
+  
+function fun1()
+
 {
-  return function y()
-  {
-    return function z()
-    {
-      console.log(x*y);
-    }
-  }
+  console.log('fun 1 is called');
+
+return function fun2()
+
+{
+  console.log('fun 2 is called');
+
+  return function fun3()
+
+{
+
+	console.log('fun 3 is called');
+
 }
-let multiplyByTwo=multiply(2);
-multiplyByTwo(3);
+
+}
+
+}
+
+fun1()()();
