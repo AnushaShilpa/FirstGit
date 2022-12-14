@@ -1,6 +1,6 @@
 const posts=[
-  {title:"post one",body:"this is post one",createdAT:new Date().getTime()},
-  {title:"post two",body:"this is post two",createdAT:new Date().getTime()}
+  {title:"post one",body:"this is post one",createdAT:new Date().getSeconds()},
+  {title:"post two",body:"this is post two",createdAT:new Date().getSeconds()}
 ];
 
 let intervalid=0;
@@ -13,10 +13,10 @@ function getPosts()
       let output='';
       for(let i=0;i<posts.length;i++) 
      {
-      output +=`<li>${posts[i].title}, last updated ${(new Date().getTime() - posts[i].createdAT)/1000} seconds ago</li>`;
+      output +=`<li>${posts[i].title}, last edited ${(new Date().getSeconds()- posts[i].createdAT)/1000} seconds ago</li>`;
     }
     document.body.innerHTML=output;
-    }, 1000);   
+    }, 2000);   
   
 }
 
@@ -25,7 +25,7 @@ getPosts();
 function createPost(post,callback)
 {
   setTimeout(()=>{
-    posts.push({...post,createdAT:new Date().getTime()})
+    posts.push({...post,createdAT:new Date().getSeconds()})
     callback();
   },2000)
 }
@@ -47,6 +47,10 @@ function createPost(post,callback)
 
 //   },2000)
 
+// }
+// function lastEditedInSecondsAgo()
+// {
+   
 // }
 
 createPost({title:'post three',body:'this is post three'},getPosts)

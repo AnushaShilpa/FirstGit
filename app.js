@@ -116,3 +116,16 @@
 
 // 
 
+console.log(a);
+var a=9;
+function xy()
+{
+
+ let b=0;
+  //console.log(a);
+  console.log(b);
+}
+  
+  //console.log(b);
+
+  xy();
