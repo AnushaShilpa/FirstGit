@@ -97,26 +97,26 @@
 
 
 
-async function  p()
-{
-try
-{
-  console.log("a");
-  console.log("b");
-  const message1= await new Promise ((resolve,reject)=>{
-    setTimeout(()=>resolve(console.log("buyimg play station"),1000))});
+// async function  p()
+// {
+// try
+// {
+//   console.log("a");
+//   console.log("b");
+//   const message1= await new Promise ((resolve,reject)=>{
+//     setTimeout(()=>resolve(console.log("buyimg play station"),1000))});
 
-   // console.log(message1)
-   const message2=await new Promise ((resolve ,reject)=>{
-      setTimeout(()=> resolve(console.log("palying")),500)});
-  console.log("enjoying");
-}
-catch(err)
-{
-  console.log(err)
-}
+//    // console.log(message1)
+//    const message2=await new Promise ((resolve ,reject)=>{
+//       setTimeout(()=> resolve(console.log("palying")),500)});
+//   console.log("enjoying");
+// }
+// catch(err)
+// {
+//   console.log(err)
+// }
 
-}
-p();
+// }
+// p();
 
 
