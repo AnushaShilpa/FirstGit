@@ -18,8 +18,17 @@ function addItem(e)
     PHNO:PHNO
 
   }
-  localStorage.setItem(details.Email,JSON.stringify(details));
-  showuser(details);
+  axios.post("https://crudcrud.com/api/4e23d60be62f48a18362c4/appointmentData",details)
+  .then(res=>{
+    showuser(res.data)
+    console.log(res)
+  })
+  .catch(err=>{
+      document.body.innerHTML=`<li>Something went wrong</li>`
+    console.error(err)
+  })
+// localStorage.setItem(details.Email,JSON.stringify(details));
+  
 }
 
 function showuser(user)
@@ -27,7 +36,7 @@ function showuser(user)
   const parentNode=document.getElementById('list');
   
  
-  const childHTML= `<li id= ${user.Email}>${user.fname},${user.Email}
+  const childHTML= `<li id= ${user.Email}>${user.fname}${user.Email}
               <button onclick=editUser('${user.Email}','${user.fname}','${user.PHNO}') class="btn btn-dark text-white btn-sm float-right">Edit</button>
               <button onclick=deleteUser('${user.Email}') class="btn btn-danger text-white btn-sm float-right"> delete</button>
                                       </li>`;// we can call click like this also
