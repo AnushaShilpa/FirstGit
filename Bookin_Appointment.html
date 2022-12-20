@@ -92,6 +92,33 @@ function addItem(e)
   
 }
 
+window.addEventListener("DOMContentLoaded", () => 
+{
+  axios.get("https://crudcrud.com/api/878ff7195ebe4bfd958677a3117dabe7")
+  .then((response)=>
+  {
+    for(var i=0;i<response.data.length;i++)
+    {
+      showuser(response.data[i])
+    }
+    console.log(response.data.value);
+  })
+  .catch((err)=>{
+    console.log(error)
+  })
+})
+
+                // const localStorageObj = localStorage;
+                // const localstoragekeys  = Object.keys(localStorageObj)
+
+                // for(var i =0; i< localstoragekeys.length; i++){
+                //     const key = localstoragekeys[i]
+                //     const userDetailsString = localStorageObj[key];
+                //     const userDetailsObj = JSON.parse(userDetailsString);
+                //     showNewUserOnScreen(userDetailsObj)
+                // }
+         
+
 function showuser(user)
 {
   const parentNode=document.getElementById('list');

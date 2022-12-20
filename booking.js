@@ -30,6 +30,17 @@ function addItem(e)
 // localStorage.setItem(details.Email,JSON.stringify(details));
   
 }
+window.addEventListener("DOMContentLoaded", () => {
+  const localStorageObj = localStorage;
+  const localstoragekeys  = Object.keys(localStorageObj)
+
+  for(var i =0; i< localstoragekeys.length; i++){
+      const key = localstoragekeys[i]
+      const userDetailsString = localStorageObj[key];
+      const userDetailsObj = JSON.parse(userDetailsString);
+      showNewUserOnScreen(userDetailsObj)
+  }
+})
 
 function showuser(user)
 {
