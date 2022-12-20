@@ -79,7 +79,7 @@ function addItem(e)
     PHNO:PHNO
 
   }
-  axios.post("https://crudcrud.com/api/878ff7195ebe4bfd958677a3117dabe7/appointmentData",details)
+  axios.post("https://crudcrud.com/api/45f42dd9003e47f8aeded00824e96b7c/appointmentData",details)
   .then(res=>{
     showuser(res.data)
     console.log(res)
@@ -88,20 +88,32 @@ function addItem(e)
       document.body.innerHTML=`<li>Something went wrong</li>`
     console.error(err)
   })
+}
 // localStorage.setItem(details.Email,JSON.stringify(details));
   
-}
+
+// axios.get("https://crudcrud.com/api/878ff7195ebe4bfd958677a3117dabe7")
+//   .then((response)=>
+//   {
+//     for(var i=0;i<response.data.length;i++)
+//     {
+//       showuser(response.data[i])
+//     }
+//     console.log(response.data.value);
+//   })
+//   .catch((err)=>{
+//     console.log(error)
+//   })
 
 window.addEventListener("DOMContentLoaded", () => 
 {
-  axios.get("https://crudcrud.com/api/878ff7195ebe4bfd958677a3117dabe7")
+  axios.get("https://crudcrud.com/api/45f42dd9003e47f8aeded00824e96b7c/appointmentData")
   .then((response)=>
   {
-    for(var i=0;i<response.data.length;i++)
-    {
+    for(var i=0;i< response.data.length;i++){
       showuser(response.data[i])
     }
-    console.log(response.data.value);
+    console.log(response);
   })
   .catch((err)=>{
     console.log(error)
@@ -122,8 +134,6 @@ window.addEventListener("DOMContentLoaded", () =>
 function showuser(user)
 {
   const parentNode=document.getElementById('list');
-  
- 
   const childHTML= `<li id= ${user.Email}>${user.fname} - ${user.Email}
               <button onclick=editUser('${user.Email}','${user.fname}','${user.PHNO}') class="btn btn-dark text-white btn-sm float-right">Edit</button>
               <button onclick=deleteUser('${user.Email}') class="btn btn-danger text-white btn-sm float-right"> delete</button>
@@ -154,10 +164,7 @@ function editUser(Email,fname,PHNO)
   document.getElementById('PHNO').value=PHNO;
 
   deleteUser(Email);
-
-
 }
-
   </script>
 </body>
 </html>
