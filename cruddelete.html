@@ -67,6 +67,7 @@
       const parentNode = document.getElementById('listOfUsers');
       const childHTML = `<li id=${user._id}> ${user.name} - ${user.email}
                          <button onclick=removeuser('${user._id}')>Delete User </button>
+                         <button onclick=editUser('${user.email}','${user.name}','${user.phonenumber}','${user._id}')> edit User </button>
                                      </li>`
 
                 parentNode.innerHTML = parentNode.innerHTML + childHTML;
@@ -90,9 +91,22 @@
  {
     const parentNode = document.getElementById('listOfUsers');
      const childNodeToBeDeleted = document.getElementById(userid);
-
+    
     parentNode.removeChild(childNodeToBeDeleted)
  } 
+
+ function editUser(email,name,phno,userid)
+            {
+
+              document.getElementById('name').value=name;
+              document.getElementById('email').value=email;
+              document.getElementById('phno').value=phno;
+            
+
+              removeuser(userid);
+
+
+            }
 </script>
 </body>
 </html>

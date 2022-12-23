@@ -55,7 +55,8 @@
     showuser(res.data)
     console.log(res)
   })
-  .catch(err=>{
+  .catch(err=>
+  {
       document.body.innerHTML=`<li>Something went wrong</li>`
     console.error(err)
   })
@@ -81,12 +82,12 @@
 
     function showuser(user)
     {
-      const parentNode = document.getElementById('listOfUsers');
+      const parentNode = document.getElementById('listofList');
       const childHTML = `<li id=${user._id}> ${user.name} - ${user.email}
                          <button onclick=removeuser('${user._id}')>Delete User </button>
                                      </li>`
 
-                parentNode.innerHTML = parentNode.innerHTML + childHTML;
+      parentNode.innerHTML = parentNode.innerHTML+childHTML;
      }
 
      function removeuser(userid)
