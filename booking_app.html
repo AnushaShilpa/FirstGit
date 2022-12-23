@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body>
-  <form onsubmit="saveToLocalStorage(event)">
-    <label> Name</label>
-    <input type="text" name="username"  required/>
-    <label> EmailId</label>
-    <input type="email" name="emailId"  required/>
-    <label> Phone Number</label>
-    <input type="tel" name="phonenumber" />
-    <button> Submit </button>
-</form>
-<ul id='listOfUsers'></ul>
-  <script>
-    function saveToLocalStorage(event) {
+    <body>
+        <form onsubmit="saveToLocalStorage(event)">
+            <label> Name</label>
+            <input type="text" id="name" name="username"  required/>
+            <label> EmailId</label>
+            <input type="email" id="email"name="emailId"  required/>
+            <label> Phone Number</label>
+            <input type="tel" id="phno" name="phonenumber" />
+            <button> Submit </button>
+        </form>
+        <ul id='listOfUsers'></ul>
+        <script>
+            function saveToLocalStorage(event) {
                 event.preventDefault();
                 const name = event.target.username.value;
                 const email = event.target.emailId.value;
@@ -50,6 +50,7 @@
             function showNewUserOnScreen(user){
                 const parentNode = document.getElementById('listOfUsers');
                 const childHTML = `<li id=${user.email}> ${user.name} - ${user.email}
+                  <button onclick=editUser('${user.email}','${user.name}','${user.phno}')> edit User </button>
                                         <button onclick=deleteUser('${user.email}')> Delete User </button>
                                      </li>`
 
@@ -71,7 +72,22 @@
 
                 parentNode.removeChild(childNodeToBeDeleted)
             }
-  </script>
-  
-</body>
+
+
+            function editUser(email,name,phno)
+            {
+
+              document.getElementById('name').value=name;
+              document.getElementById('email').value=email;
+              document.getElementById('phno').value=phonenumber;
+
+              deleteUser(email);
+
+
+            }
+
+        </script>
+
+
+    </body>
 </html>
